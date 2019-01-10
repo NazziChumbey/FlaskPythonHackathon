@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+<h1>Join Team</h1>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>Enter access key:</td>
+            <td>{{ form.access_key(size=32) }}<br>
+                {% for error in form.access_key.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form.submit() }}</td>
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}

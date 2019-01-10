@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+<h1>Join the event:</h1>
+<form action="/event_join" method="POST">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>Active Event</td>
+            <td>
+                {{ form.active_event}}
+                {% for error in form.active_event.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </td>
+        </tr>
+
+        <tr>
+            <td>{{ form.submit() }}</td>
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}

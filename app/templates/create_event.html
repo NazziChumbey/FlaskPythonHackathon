@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Абсолютное позиционирование</title>
+    <style type="text/css">
+   #categories {
+    text-align: right;
+   }
+   #description p {
+    text-align: center;
+   }
+   #nameevent {
+    text-align: left;
+   }
+
+
+    </style>
+</head>
+<body>
+<h1>Create Event</h1>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <th>
+                <h3>Name event:</h3>
+                <p>{{ form.name_event(size=32) }}<br>
+                    {% for error in form.name_event.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}</p>
+
+                <h3> Description:</h3>
+                <p>{{ form.description(rows='10',cols='31') }}<br>
+                    {% for error in form.name_event.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}</p>
+
+                <h3> Category:</h3>
+                <p>{{ form.category1(size=32)}}</p>
+                <p>{{ form.category2(size=32)}}</p>
+                <p>{{ form.category3(size=32)}}</p>
+                <p>{{ form.category4(size=32)}}</p>
+                <p>{{ form.category5(size=32)}}</p>
+                <div id="submit">
+                    <p>{{ form.submit() }}</p>
+                </div>
+            <th>
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}

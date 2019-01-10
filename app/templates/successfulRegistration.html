@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>REGISTRATION SUCCESSFUL</h3>
+
+    <table>
+        <tr><td>Ім'я : {{form.firstname.data}} </td></tr>
+        <tr><td>Прізвище : {{form.lastname.data}} </td></tr>
+        <tr><td>Дата народження :  {{form.birthday_day.data}} / {{form.birthday_month.data}} / {{form.birthday_year.data}} </td></tr>
+
+        <tr><td>Номер телефону : {{form.number.data}} </td></tr>
+        <tr><td>Стать : {{form.gender.data}} </td></tr>
+        <tr><td>Адреса : {{form.address.data}} </td></tr>
+    </table>
+{% endblock %}

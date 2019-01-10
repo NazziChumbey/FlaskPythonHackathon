@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>REGISTRATION FORM</h3>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <table align="center" cellpadding="10">
+        <!----- First Name ---------------------------------------------------------->
+        <tr>
+            <td>FIRST NAME</td>
+            <td>{{ form.firstname(size=32) }}<br>
+                {% for error in form.firstname.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </td>
+        </tr>
+
+        <!----- Last Name ---------------------------------------------------------->
+        <tr>
+            <td>LAST NAME</td>
+            <td>{{ form.lastname(size=32) }}<br>
+                {% for error in form.lastname.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </td>
+        </tr>
+
+        <!----- Date Of Birth -------------------------------------------------------->
+        <tr>
+            <td>DATE OF BIRTH</td>
+            <td>
+                {{ form.birthday_day }}
+                {{ form.birthday_month }}
+                {{ form.birthday_year }}
+            </td>
+        </tr>
+
+        <!----- Mobile Number ---------------------------------------------------------->
+        <tr>
+            <td>MOBILE NUMBER</td>
+            <td>{{ form.number(size=32) }}<br>
+                {% for error in form.number.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </td>
+        </tr>
+
+        <!----- Gender ----------------------------------------------------------->
+        <tr>
+            <td>GENDER<br/><br/><br/></td>
+            <td>{{ form.gender }}</td>
+        </tr>
+
+        <!----- Address ---------------------------------------------------------->
+        <tr>
+            <td>ADDRESS <br/><br/><br/></td>
+            <td>{{ form.address(size=64) }}<br>
+                {% for error in form.address.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </td>
+        </tr>
+
+
+        <!----- Submit and Reset ------------------------------------------------->
+        <tr>
+            <td colspan="2" align="center">
+                {{ form.submit() }}
+                <input type="reset" value="Reset">
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+{% endblock %}

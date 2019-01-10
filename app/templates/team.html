@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+<h1>Team menu:</h1>
+<form action="" method="POST">
+    <table>
+        <tr>
+            <td>
+                <a href="{{ url_for('create_team') }}">Create Team</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ url_for('team_join') }}">Join Team</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}
